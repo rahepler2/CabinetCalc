@@ -1,7 +1,7 @@
 alembic==1.13.2
 blinker==1.4
-Brotli==1.0.9
-certifi==2023.6.15
+brotli==1.0.9
+certifi==2023.5.7
 cffi==1.15.1
 charset-normalizer==2.1.1
 click==8.1.3
