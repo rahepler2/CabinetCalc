@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Edit Cabinet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Edit Cabinet</h1>
+    </header>
+    <main>
+    <form method="post">
+        <label for="collection">Collection:</label>
+        <select id="collection" name="collection" required>
+            <option value="Shaker" {% if cabinet.collection == 'Shaker' %}selected{% endif %}>Shaker</option>
+            <option value="English" {% if cabinet.collection == 'English' %}selected{% endif %}>English</option>
+            <option value="Regal" {% if cabinet.collection == 'Regal' %}selected{% endif %}>Regal</option>
+            <option value="Mill House" {% if cabinet.collection == 'Mill House' %}selected{% endif %}>Mill House</option>
+            <option value="Diplomat" {% if cabinet.collection == 'Diplomat' %}selected{% endif %}>Diplomat</option>
+            <option value="Governor" {% if cabinet.collection == 'Governor' %}selected{% endif %}>Governor</option>
+        </select><br><br>
+
+        <label for="location">Location:</label>
+        <select id="location" name="location" required>
+            <option value="Appliance" {% if cabinet.location == 'Appliance' %}selected{% endif %}>Appliance</option>
+            <option value="Base" {% if cabinet.location == 'Base' %}selected{% endif %}>Base</option>
+            <option value="Countertop" {% if cabinet.location == 'Countertop' %}selected{% endif %}>Countertop</option>
+            <option value="DW Front" {% if cabinet.location == 'DW Front' %}selected{% endif %}>DW Front</option>
+            <option value="Freestanding" {% if cabinet.location == 'Freestanding' %}selected{% endif %}>Freestanding</option>
+            <option value="Open Base" {% if cabinet.location == 'Open Base' %}selected{% endif %}>Open Base</option>
+            <option value="Open Tall" {% if cabinet.location == 'Open Tall' %}selected{% endif %}>Open Tall</option>
+            <option value="R Front" {% if cabinet.location == 'R Front' %}selected{% endif %}>R Front</option>
+            <option value="Refrigerator" {% if cabinet.location == 'Refrigerator' %}selected{% endif %}>Refrigerator</option>
+            <option value="Short Wall" {% if cabinet.location == 'Short Wall' %}selected{% endif %}>Short Wall</option>
+            <option value="Sink" {% if cabinet.location == 'Sink' %}selected{% endif %}>Sink</option>
+            <option value="Tall" {% if cabinet.location == 'Tall' %}selected{% endif %}>Tall</option>
+            <option value="Vanity" {% if cabinet.location == 'Vanity' %}selected{% endif %}>Vanity</option>
+            <option value="Wall" {% if cabinet.location == 'Wall' %}selected{% endif %}>Wall</option>
+        </select><br><br>
+
+        <label for="width">Width:</label>
+        <input type="number" id="width" name="width" value="{{ cabinet.width }}" required><br><br>
+
+        <label for="carcass_interior">Carcass Interior:</label>
+        <select id="carcass_interior" name="carcass_interior" required>
+            <option value="Ash (3/4)" {% if cabinet.carcass_interior == 'Ash (3/4)' %}selected{% endif %}>Ash (3/4)</option>
+            <option value="Baltic Birch (3/4)" {% if cabinet.carcass_interior == 'Baltic Birch (3/4)' %}selected{% endif %}>Baltic Birch (3/4)</option>
+            <option value="Baltic Birch (1/2)" {% if cabinet.carcass_interior == 'Baltic Birch (1/2)' %}selected{% endif %}>Baltic Birch (1/2)</option>
+            <option value="Cherry (3/4)" {% if cabinet.carcass_interior == 'Cherry (3/4)' %}selected{% endif %}>Cherry (3/4)</option>
+            <option value="Walnut (3/4)" {% if cabinet.carcass_interior == 'Walnut (3/4)' %}selected{% endif %}>Walnut (3/4)</option>
+            <option value="White Oak (3/4)" {% if cabinet.carcass_interior == 'White Oak (3/4)' %}selected{% endif %}>White Oak (3/4)</option>
+        </select><br><br>
+
+        <label for="drawer_wood">Drawer Wood:</label>
+        <select id="drawer_wood" name="drawer_wood" required>
+            <option value="Walnut" {% if cabinet.drawer_wood == 'Walnut' %}selected{% endif %}>Walnut</option>
+            <option value="Birch" {% if cabinet.drawer_wood == 'Birch' %}selected{% endif %}>Birch</option>
+            <option value="Maple" {% if cabinet.drawer_wood == 'Maple' %}selected{% endif %}>Maple</option>
+            <option value="White Oak Qtr Sawn" {% if cabinet.drawer_wood == 'White Oak Qtr Sawn' %}selected{% endif %}>White Oak Qtr Sawn</option>
+            <option value="White Oak" {% if cabinet.drawer_wood == 'White Oak' %}selected{% endif %}>White Oak</option>
+            <option value="N/A" {% if cabinet.drawer_wood == 'N/A' %}selected{% endif %}>N/A</option>
+        </select><br><br>
+
+        <label for="hinge_style">Hinge Style:</label>
+        <select id="hinge_style" name="hinge_style" required>
+            <option value="Ball Hinge" {% if cabinet.hinge_style == 'Ball Hinge' %}selected{% endif %}>Ball Hinge</option>
+            <option value="Concealed" {% if cabinet.hinge_style == 'Concealed' %}selected{% endif %}>Concealed</option>
+        </select><br><br>
+
+        <label for="ceiling_height">Ceiling Height:</label>
+        <select id="ceiling_height" name="ceiling_height" required>
+            <option value="8" {% if cabinet.ceiling_height == 8 %}selected{% endif %}>8</option>
+            <option value="9" {% if cabinet.ceiling_height == 9 %}selected{% endif %}>9</option>
+            <option value="10" {% if cabinet.ceiling_height == 10 %}selected{% endif %}>10</option>
+            <option value="12" {% if cabinet.ceiling_height == 12 %}selected{% endif %}>12</option>
+        </select><br><br>
+
+        <label for="num_drawers">Number of Drawers:</label>
+        <select id="num_drawers" name="num_drawers" required>
+            <option value="0" {% if cabinet.num_drawers == 0 %}selected{% endif %}>0</option>
+            <option value="1" {% if cabinet.num_drawers == 1 %}selected{% endif %}>1</option>
+            <option value="2" {% if cabinet.num_drawers == 2 %}selected{% endif %}>2</option>
+            <option value="3" {% if cabinet.num_drawers == 3 %}selected{% endif %}>3</option>
+            <option value="4" {% if cabinet.num_drawers == 4 %}selected{% endif %}>4</option>
+            <option value="5" {% if cabinet.num_drawers == 5 %}selected{% endif %}>5</option>
+            <option value="6" {% if cabinet.num_drawers == 6 %}selected{% endif %}>6</option>
+            <option value="7" {% if cabinet.num_drawers == 7 %}selected{% endif %}>7</option>
+            <option value="8" {% if cabinet.num_drawers == 8 %}selected{% endif %}>8</option>
+        </select><br><br>
+
+        <label for="num_doors">Number of Doors:</label>
+        <select id="num_doors" name="num_doors" required>
+            <option value="0" {% if cabinet.num_doors == 0 %}selected{% endif %}>0</option>
+            <option value="1" {% if cabinet.num_doors == 1 %}selected{% endif %}>1</option>
+            <option value="2" {% if cabinet.num_doors == 2 %}selected{% endif %}>2</option>
+            <option value="3" {% if cabinet.num_doors == 3 %}selected{% endif %}>3</option>
+            <option value="4" {% if cabinet.num_doors == 4 %}selected{% endif %}>4</option>
+        </select><br><br>
+
+        <label for="frame_wood">Frame Wood:</label>
+        <select id="frame_wood" name="frame_wood" required>
+            <option value="Alder" {% if cabinet.frame_wood == 'Alder' %}selected{% endif %}>Alder</option>
+            <option value="Ash" {% if cabinet.frame_wood == 'Ash' %}selected{% endif %}>Ash</option>
+            <option value="Birch" {% if cabinet.frame_wood == 'Birch' %}selected{% endif %}>Birch</option>
+            <option value="Cherry" {% if cabinet.frame_wood == 'Cherry' %}selected{% endif %}>Cherry</option>
+            <option value="Hickory" {% if cabinet.frame_wood == 'Hickory' %}selected{% endif %}>Hickory</option>
+            <option value="Maple" {% if cabinet.frame_wood == 'Maple' %}selected{% endif %}>Maple</option>
+            <option value="Walnut" {% if cabinet.frame_wood == 'Walnut' %}selected{% endif %}>Walnut</option>
+            <option value="White Oak Qtr Sawn" {% if cabinet.frame_wood == 'White Oak Qtr Sawn' %}selected{% endif %}>White Oak Qtr Sawn</option>
+            <option value="White Oak" {% if cabinet.frame_wood == 'White Oak' %}selected{% endif %}>White Oak</option>
+        </select><br><br>
+
+        <label for="glass">Glass:</label>
+        <select id="glass" name="glass" required>
+            <option value="Yes" {% if cabinet.glass == 'Yes' %}selected{% endif %}>Yes</option>
+            <option value="No" {% if cabinet.glass == 'No' %}selected{% endif %}>No</option>
+        </select><br><br>
+
+        <label for="back_panel">Back Panel:</label>
+        <select id="back_panel" name="back_panel" required>
+            <option value="Bead Board" {% if cabinet.back_panel == 'Bead Board' %}selected{% endif %}>Bead Board</option>
+            <option value="Plain" {% if cabinet.back_panel == 'Plain' %}selected{% endif %}>Plain</option>
+            <option value="Shiplap" {% if cabinet.back_panel == 'Shiplap' %}selected{% endif %}>Shiplap</option>
+            <option value="Woven" {% if cabinet.back_panel == 'Woven' %}selected{% endif %}>Woven</option>
+        </select><br><br>
+
+        <label for="toe_kick">Toe Kick:</label>
+        <select id="toe_kick" name="toe_kick" required>
+            <option value="Yes" {% if cabinet.toe_kick == 'Yes' %}selected{% endif %}>Yes</option>
+            <option value="No" {% if cabinet.toe_kick == 'No' %}selected{% endif %}>No</option>
+        </select><br><br>
+
+        <label for="end_panel">End Panel:</label>
+        <select id="end_panel" name="end_panel" required>
+            <option value="Yes" {% if cabinet.end_panel == 'Yes' %}selected{% endif %}>Yes</option>
+            <option value="No" {% if cabinet.end_panel == 'No' %}selected{% endif %}>No</option>
+        </select><br><br>
+
+        <label for="finish">Finish:</label>
+        <select id="finish" name="finish" required>
+            <option value="Paint" {% if cabinet.finish == 'Paint' %}selected{% endif %}>Paint</option>
+            <option value="Stain" {% if cabinet.finish == 'Stain' %}selected{% endif %}>Stain</option>
+        </select><br><br>
+
+        <button type="submit">Update Cabinet</button>
+    </form>
+</main>
+<footer>
+    <p>&copy; 2024 Cabinet Management</p>
+</footer>
+</body>
+</html>

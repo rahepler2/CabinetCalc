@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Add Job for {{ customer.name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Add Job for {{ customer.name }}</h1>
+    </header>
+    <form method="post">
+        <!-- Job Details -->
+        <fieldset>
+            <legend>Job Details</legend>
+            <label for="job_name">Job Name:</label>
+            <input type="text" id="job_name" name="job_name" required><br><br>
+            <label for="job_address">Job Address:</label>
+            <input type="text" id="job_address" name="job_address" required><br><br>
+            <label for="job_notes">Additional Notes:</label>
+            <textarea id="job_notes" name="job_notes"></textarea><br><br>
+        </fieldset>
+        
+        <!-- Customer Details -->
+        <fieldset>
+            <legend>Customer Details</legend>
+            <label for="customer_name">Customer Name:</label>
+            <input type="text" id="customer_name" name="customer_name" value="{{ customer.name }}" required><br><br>
+            <label for="customer_email">Customer Email:</label>
+            <input type="email" id="customer_email" name="customer_email" value="{{ customer.email }}" required><br><br>
+        </fieldset>
+
+        <!-- Contact Information -->
+        <fieldset>
+            <legend>Contact Information</legend>
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required><br><br>
+            <label for="secondary_contact1">Secondary Contact 1:</label>
+            <input type="text" id="secondary_contact1" name="secondary_contact1"><br><br>
+            <label for="secondary_contact2">Secondary Contact 2:</label>
+            <input type="text" id="secondary_contact2" name="secondary_contact2"><br><br>
+        </fieldset>
+        
+        <!-- Cabinet Details -->
+        <fieldset>
+            <legend>Cabinet Details</legend>
+            <label for="collection">Collection:</label>
+            <select id="collection" name="collection" required>
+                <option value="Shaker">Shaker</option>
+                <option value="English">English</option>
+                <option value="Regal">Regal</option>
+                <option value="Mill House">Mill House</option>
+                <option value="Diplomat">Diplomat</option>
+                <option value="Governor">Governor</option>
+            </select><br><br>
+
+            <label for="location">Location:</label>
+            <select id="location" name="location" required>
+                <option value="Appliance">Appliance</option>
+                <option value="Base">Base</option>
+                <option value="Countertop">Countertop</option>
+                <option value="DW Front">DW Front</option>
+                <option value="Freestanding">Freestanding</option>
+                <option value="Open Base">Open Base</option>
+                <option value="Open Tall">Open Tall</option>
+                <option value="R Front">R Front</option>
+                <option value="Refrigerator">Refrigerator</option>
+                <option value="Short Wall">Short Wall</option>
+                <option value="Sink">Sink</option>
+                <option value="Tall">Tall</option>
+                <option value="Vanity">Vanity</option>
+                <option value="Wall">Wall</option>
+            </select><br><br>
+
+            <label for="width">Width:</label>
+            <input type="number" id="width" name="width" required><br><br>
+
+            <label for="carcass_interior">Carcass Interior:</label>
+            <select id="carcass_interior" name="carcass_interior" required>
+                <option value="Ash (3/4)">Ash (3/4)</option>
+                <option value="Baltic Birch (3/4)">Baltic Birch (3/4)</option>
+                <option value="Baltic Birch (1/2)">Baltic Birch (1/2)</option>
+                <option value="Cherry (3/4)">Cherry (3/4)</option>
+                <option value="Walnut (3/4)">Walnut (3/4)</option>
+                <option value="White Oak (3/4)">White Oak (3/4)</option>
+            </select><br><br>
+
+            <label for="drawer_wood">Drawer Wood:</label>
+            <select id="drawer_wood" name="drawer_wood" required>
+                <option value="Walnut">Walnut</option>
+                <option value="Birch">Birch</option>
+                <option value="Maple">Maple</option>
+                <option value="White Oak Qtr Sawn">White Oak Qtr Sawn</option>
+                <option value="White Oak">White Oak</option>
+                <option value="N/A">N/A</option>
+            </select><br><br>
+
+            <label for="hinge_style">Hinge Style:</label>
+            <select id="hinge_style" name="hinge_style" required>
+                <option value="Ball Hinge">Ball Hinge</option>
+                <option value="Concealed">Concealed</option>
+            </select><br><br>
+
+            <label for="ceiling_height">Ceiling Height:</label>
+            <select id="ceiling_height" name="ceiling_height" required>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="12">12</option>
+            </select><br><br>
+
+            <label for="num_drawers">Number of Drawers:</label>
+            <select id="num_drawers" name="num_drawers" required>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select><br><br>
+
+            <label for="num_doors">Number of Doors:</label>
+            <select id="num_doors" name="num_doors" required>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select><br><br>
+
+            <label for="frame_wood">Frame Wood:</label>
+            <select id="frame_wood" name="frame_wood" required>
+                <option value="Alder">Alder</option>
+                <option value="Ash">Ash</option>
+                <option value="Birch">Birch</option>
+                <option value="Cherry">Cherry</option>
+                <option value="Hickory">Hickory</option>
+                <option value="Maple">Maple</option>
+                <option value="Walnut">Walnut</option>
+                <option value="White Oak Qtr Sawn">White Oak Qtr Sawn</option>
+                <option value="White Oak">White Oak</option>
+            </select><br><br>
+
+            <label for="glass">Glass:</label>
+            <select id="glass" name="glass" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+
+            <label for="back_panel">Back Panel:</label>
+            <select id="back_panel" name="back_panel" required>
+                <option value="Bead Board">Bead Board</option>
+                <option value="Plain">Plain</option>
+                <option value="Shiplap">Shiplap</option>
+                <option value="Woven">Woven</option>
+            </select><br><br>
+
+            <label for="toe_kick">Toe Kick:</label>
+            <select id="toe_kick" name="toe_kick" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+
+            <label for="end_panel">End Panel:</label>
+            <select id="end_panel" name="end_panel" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+
+            <label for="finish">Finish:</label>
+            <select id="finish" name="finish" required>
+                <option value="Paint">Paint</option>
+                <option value="Stain">Stain</option>
+            </select>
+        </fieldset>
+
+        <button type="submit">Add Job</button>
+    </form>
+</body>
+</html>
+

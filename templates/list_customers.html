@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Customer List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Customer List</h1>
+    </header>
+    <ul>
+        {% for customer in customers %}
+            <li>
+                {{ customer.name }} ({{ customer.email }})
+                <a href="{{ url_for('add_job', customer_id=customer.customer_id) }}">Add Job</a>
+                <a href="{{ url_for('view_customer', customer_id=customer.customer_id) }}">View Jobs</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

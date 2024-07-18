@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Jobs for {{ customer.name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Jobs for {{ customer.name }}</h1>
+    </header>
+    <ul>
+        {% for job in customer.jobs %}
+            <li>
+                <h3>Job {{ loop.index }}: {{ job.job_name }}</h3>
+                <p>Address: {{ job.job_address }}</p>
+                <p>Notes: {{ job.job_notes }}</p>
+                <p>Customer: {{ job.customer_name }} ({{ job.customer_email }})</p>
+                <p>Phone: {{ job.phone }}</p>
+                <p>Secondary Contact 1: {{ job.secondary_contact1 }}</p>
+                <p>Secondary Contact 2: {{ job.secondary_contact2 }}</p>
+                <ul>
+                    <li>Total Cost: {{ job.total_cost }}</li>
+                    <li>Materials Required: {{ job.materials.num_sheets }} sheets</li>
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+
