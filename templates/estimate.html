@@ -214,7 +214,8 @@
         </form>
 
         <h2 class="mt-5">Cabinet List</h2>
-        <table class="table table-striped mt-2">
+        <div class='table-responsive'>
+        <table class="table table-striped mt-2 table-hover-bg-factor">
             <thead>
                 <tr>
                     <th>Collection</th>
@@ -266,6 +267,7 @@
                 {% endfor %}
             </tbody>
         </table>
+    </div>
         {% if total_cost_all_cabinets is not none %}
         <h2 class="mt-4">Total Cost of All Cabinets: {{ total_cost_all_cabinets }}</h2>
         {% endif %}
