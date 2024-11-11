@@ -20,10 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/estimate">Estimate</a>
-                    </li>
-                    // <li class="nav-item">
-                    //     <a class="nav-link" href="/materials">Materials List</a>
-                    // </li>
+               
                     
                 </ul>
             </div>
